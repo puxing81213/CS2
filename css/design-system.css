@@ -1,0 +1,467 @@
+/* ============================================
+   CS2 战术板 - 电竞科技风设计系统
+   ============================================ */
+
+:root {
+  /* 主色调 - 电竞霓虹橙 */
+  --cs2-primary: #ff7a1a;
+  --cs2-primary-light: #ff9f4a;
+  --cs2-primary-dark: #cc6214;
+  --cs2-primary-glow: rgba(255, 122, 26, 0.4);
+  --cs2-primary-bg: rgba(255, 122, 26, 0.08);
+
+  /* 辅助色 - 青色 */
+  --cs2-accent: #00d4ff;
+  --cs2-accent-light: #4de3ff;
+  --cs2-accent-glow: rgba(0, 212, 255, 0.3);
+
+  /* 阵营色 */
+  --cs2-ct: #3b82f6;
+  --cs2-ct-light: #60a5fa;
+  --cs2-ct-dark: #2563eb;
+  --cs2-ct-glow: rgba(59, 130, 246, 0.4);
+  --cs2-ct-bg: rgba(59, 130, 246, 0.1);
+
+  --cs2-t: #f59e0b;
+  --cs2-t-light: #fbbf24;
+  --cs2-t-dark: #d97706;
+  --cs2-t-glow: rgba(245, 158, 11, 0.4);
+  --cs2-t-bg: rgba(245, 158, 11, 0.1);
+
+  /* 背景层 */
+  --cs2-bg: #0a0a0f;
+  --cs2-bg-secondary: #12121a;
+  --cs2-surface: #1a1a24;
+  --cs2-surface-hover: #23232e;
+  --cs2-surface-active: #2a2a38;
+  --cs2-elevated: #252532;
+
+  /* 边框 */
+  --cs2-border: rgba(255, 255, 255, 0.08);
+  --cs2-border-light: rgba(255, 255, 255, 0.12);
+  --cs2-border-primary: rgba(255, 122, 26, 0.3);
+
+  /* 文字 */
+  --cs2-text-primary: #ffffff;
+  --cs2-text-secondary: rgba(255, 255, 255, 0.7);
+  --cs2-text-tertiary: rgba(255, 255, 255, 0.45);
+  --cs2-text-disabled: rgba(255, 255, 255, 0.25);
+
+  /* 状态色 */
+  --cs2-success: #10b981;
+  --cs2-warning: #f59e0b;
+  --cs2-error: #ef4444;
+  --cs2-info: #3b82f6;
+
+  /* 道具色 */
+  --cs2-smoke: #9ca3af;
+  --cs2-he: #ef4444;
+  --cs2-flash: #fbbf24;
+  --cs2-molotov: #f97316;
+  --cs2-decoy: #a855f7;
+  --cs2-zeus: #22d3ee;
+
+  /* 字体 */
+  --cs2-font-display: 'Rajdhani', 'Orbitron', 'Noto Sans SC', sans-serif;
+  --cs2-font-body: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --cs2-font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  /* 字号 */
+  --cs2-text-xs: 11px;
+  --cs2-text-sm: 13px;
+  --cs2-text-base: 14px;
+  --cs2-text-lg: 16px;
+  --cs2-text-xl: 18px;
+  --cs2-text-2xl: 22px;
+  --cs2-text-3xl: 28px;
+  --cs2-text-4xl: 36px;
+
+  /* 间距 */
+  --cs2-space-1: 4px;
+  --cs2-space-2: 8px;
+  --cs2-space-3: 12px;
+  --cs2-space-4: 16px;
+  --cs2-space-5: 20px;
+  --cs2-space-6: 24px;
+  --cs2-space-8: 32px;
+  --cs2-space-10: 40px;
+  --cs2-space-12: 48px;
+
+  /* 圆角 */
+  --cs2-radius-sm: 4px;
+  --cs2-radius-md: 6px;
+  --cs2-radius-lg: 8px;
+  --cs2-radius-xl: 12px;
+
+  /* 阴影 */
+  --cs2-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --cs2-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --cs2-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --cs2-shadow-glow-orange: 0 0 20px rgba(255, 122, 26, 0.3);
+  --cs2-shadow-glow-blue: 0 0 20px rgba(59, 130, 246, 0.3);
+
+  /* 过渡 */
+  --cs2-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cs2-transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cs2-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   基础重置
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--cs2-font-body);
+  font-size: var(--cs2-text-base);
+  color: var(--cs2-text-primary);
+  background: var(--cs2-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at top left, rgba(255, 122, 26, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: auto, auto, 24px 24px, 24px 24px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ============================================
+   通用组件样式
+   ============================================ */
+
+/* 按钮基础 */
+.cs2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cs2-space-2);
+  padding: var(--cs2-space-2) var(--cs2-space-4);
+  border-radius: var(--cs2-radius-md);
+  font-size: var(--cs2-text-sm);
+  font-weight: 500;
+  transition: all var(--cs2-transition-fast);
+  border: 1px solid var(--cs2-border);
+  background: var(--cs2-surface);
+  color: var(--cs2-text-primary);
+  white-space: nowrap;
+}
+
+.cs2-btn:hover {
+  background: var(--cs2-surface-hover);
+  border-color: var(--cs2-border-light);
+}
+
+.cs2-btn:active {
+  background: var(--cs2-surface-active);
+}
+
+.cs2-btn-primary {
+  background: var(--cs2-primary);
+  border-color: var(--cs2-primary);
+  color: #0a0a0f;
+  font-weight: 600;
+}
+
+.cs2-btn-primary:hover {
+  background: var(--cs2-primary-light);
+  border-color: var(--cs2-primary-light);
+  box-shadow: var(--cs2-shadow-glow-orange);
+}
+
+.cs2-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--cs2-text-secondary);
+}
+
+.cs2-btn-ghost:hover {
+  background: var(--cs2-surface);
+  color: var(--cs2-text-primary);
+}
+
+.cs2-btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--cs2-radius-md);
+}
+
+.cs2-btn-icon.lg {
+  width: 40px;
+  height: 40px;
+}
+
+.cs2-btn.danger {
+  color: var(--cs2-error);
+  border-color: var(--cs2-error);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.cs2-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--cs2-error);
+  color: var(--cs2-error);
+}
+
+.cs2-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 分段控制器 */
+.cs2-segmented {
+  display: inline-flex;
+  background: var(--cs2-surface);
+  border: 1px solid var(--cs2-border);
+  border-radius: var(--cs2-radius-md);
+  padding: 2px;
+  gap: 2px;
+}
+
+.cs2-segmented button {
+  padding: var(--cs2-space-2) var(--cs2-space-4);
+  font-size: var(--cs2-text-sm);
+  font-weight: 500;
+  border-radius: var(--cs2-radius-sm);
+  color: var(--cs2-text-secondary);
+  transition: all var(--cs2-transition-fast);
+}
+
+.cs2-segmented button.active {
+  background: var(--cs2-primary);
+  color: #0a0a0f;
+  font-weight: 600;
+}
+
+.cs2-segmented.ct-t button.ct.active {
+  background: var(--cs2-ct);
+  color: white;
+  box-shadow: 0 0 12px var(--cs2-ct-glow);
+}
+
+.cs2-segmented.ct-t button.t.active {
+  background: var(--cs2-t);
+  color: #0a0a0f;
+  box-shadow: 0 0 12px var(--cs2-t-glow);
+}
+
+/* 卡片 */
+.cs2-card {
+  background: var(--cs2-surface);
+  border: 1px solid var(--cs2-border);
+  border-radius: var(--cs2-radius-lg);
+  overflow: hidden;
+  transition: all var(--cs2-transition-normal);
+}
+
+.cs2-card:hover {
+  border-color: var(--cs2-border-light);
+  background: var(--cs2-surface-hover);
+}
+
+/* 徽章 */
+.cs2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: var(--cs2-text-xs);
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--cs2-surface-active);
+  color: var(--cs2-text-secondary);
+}
+
+.cs2-badge.primary {
+  background: var(--cs2-primary-bg);
+  color: var(--cs2-primary-light);
+}
+
+.cs2-badge.ct {
+  background: var(--cs2-ct-bg);
+  color: var(--cs2-ct-light);
+}
+
+.cs2-badge.t {
+  background: var(--cs2-t-bg);
+  color: var(--cs2-t-light);
+}
+
+.cs2-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+/* 进度条 */
+.cs2-progress {
+  height: 4px;
+  background: var(--cs2-surface-active);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.cs2-progress-bar {
+  height: 100%;
+  background: var(--cs2-primary);
+  border-radius: 2px;
+  transition: width var(--cs2-transition-normal);
+}
+
+.cs2-progress-bar.ct {
+  background: var(--cs2-ct);
+}
+
+.cs2-progress-bar.t {
+  background: var(--cs2-t);
+}
+
+/* 分隔线 */
+.cs2-divider {
+  height: 1px;
+  background: var(--cs2-border);
+  margin: var(--cs2-space-4) 0;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cs2-surface-active);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cs2-border-light);
+}
+
+/* 工具提示 */
+.cs2-tooltip {
+  position: relative;
+}
+
+.cs2-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  font-size: var(--cs2-text-xs);
+  background: var(--cs2-elevated);
+  border: 1px solid var(--cs2-border-light);
+  border-radius: var(--cs2-radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--cs2-transition-fast);
+  z-index: 100;
+}
+
+.cs2-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* 角装饰 */
+.corner-decoration {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--cs2-primary);
+  opacity: 0;
+  transition: opacity var(--cs2-transition-fast);
+}
+
+.cs2-card:hover .corner-decoration {
+  opacity: 1;
+}
+
+.corner-decoration.tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner-decoration.tr {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.corner-decoration.bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner-decoration.br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* 扫描线效果 */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 122, 26, 0.03) 50%,
+    transparent 100%
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--cs2-primary-glow); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
